@@ -9,8 +9,10 @@
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
 @code {
+
     private int current = 0;
     private int currentCount = 0;
+    private ArrayList fibArr = new ArrayList();
 
     private void IncrementCount()
     {
@@ -18,15 +20,12 @@
         currentCount = fib(current);
     }
     private int fib(int count) {
-        if(count == 0){
-            return 0;
-        }
-        else if(count == 1)
+        fibArr.Insert(0,0);
+        fibArr.Insert(1,1);
+        for (int i = 2; i <= count; i++)
         {
-            return 1;
+            fibArr.Add(fibArr.Item[i-1] + fibArr.Item[i-2]);
         }
-        else {
-            return fib(count - 1) + fib(count - 2);
-        }
+        return fibArr.Item[count];
     }
 }
