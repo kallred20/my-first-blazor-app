@@ -1,18 +1,32 @@
 ﻿@page "/counter"
 
-<PageTitle>Counter</PageTitle>
+<PageTitle>Keegan Counter</PageTitle>
 
-<h1>Counter</h1>
+<h1>Keegan's Counter</h1>
 
 <p role="status">Current count: @currentCount</p>
 
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
 @code {
+    private int current = 0;
     private int currentCount = 0;
 
     private void IncrementCount()
     {
-        currentCount++;
+        current++;
+        currentCount = fib(current);
+    }
+    private int fib(int count) {
+        if(count == 0){
+            return 0;
+        }
+        else if(count == 1)
+        {
+            return 1;
+        }
+        else {
+            return fib(count - 1) + fib(count - 2);
+        }
     }
 }
