@@ -12,7 +12,7 @@
 
     private int current = 0;
     private int currentCount = 0;
-    private List<int> fibArr = new List<int>;
+    private List<int> fibArr;
 
     private void IncrementCount()
     {
@@ -20,6 +20,7 @@
         currentCount = fib(current);
     }
     private int fib(int count) {
+        fibArr = new List<int>();
         fibArr.Insert(0,0);
         fibArr.Insert(1,1);
         for (int i = 2; i <= count; i++)
